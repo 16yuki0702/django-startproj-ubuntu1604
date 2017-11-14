@@ -1,0 +1,16 @@
+db:
+  image: mysql
+  container_name: app-db
+  environment:
+    MYSQL_ROOT_PASSWORD: user
+    MYSQL_DATABASE: user
+    MYSQL_USER: user
+    MYSQL_PASSWORD: user
+web:
+  build: .
+  container_name: app-web
+  ports:
+    - "8080:80"
+    - "1883:1883"
+  links:
+    - db:db
